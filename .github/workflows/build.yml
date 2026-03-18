@@ -385,3 +385,16 @@ jobs:
         asset_path: '${{ github.workspace }}/build-android-x86_64/subprojects/frida-gum/bindings/gumjs/libfrida-gumjs-1.0.a.gz'
         asset_name: 'florida-gumjs-${{ needs.check_version.outputs.FRIDA_VERSION }}-android-x86_64.a.gz'
         asset_content_type: application/octet-stream
+    - name: Upload All Frida Binaries as Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: Frida-StrongR-Full-Package
+        path: |
+          build-android-arm/subprojects/frida-core/server/frida-server.gz
+          build-android-arm64/subprojects/frida-core/server/frida-server.gz
+          build-android-x86/subprojects/frida-core/server/frida-server.gz
+          build-android-x86_64/subprojects/frida-core/server/frida-server.gz
+          build-android-arm/subprojects/frida-core/lib/gadget/frida-gadget.so.gz
+          build-android-arm64/subprojects/frida-core/lib/gadget/frida-gadget.so.gz
+          build-android-x86/subprojects/frida-core/lib/gadget/frida-gadget.so.gz
+          build-android-x86_64/subprojects/frida-core/lib/gadget/frida-gadget.so.gz
